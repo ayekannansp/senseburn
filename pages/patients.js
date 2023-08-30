@@ -1,11 +1,11 @@
-import React from "react";
-import jwt from "jsonwebtoken";
-import HomeSection from "@/components/HomeSection";
+import PatientList from "@/components/PatientList";
 import Navbarsection from "@/components/shared/Navbarsection";
+import React from "react";
+
+import jwt from "jsonwebtoken";
 
 export async function getServerSideProps(context) {
     const token = context.req.cookies.auth;
-    console.log("TKN =>", token);
 
     if (!token) {
         return {
@@ -19,7 +19,6 @@ export async function getServerSideProps(context) {
     try {
         const decoded = jwt.verify(token, "YOUR_INTERNAL_SECRET");
         const user = decoded.user;
-        console.log("USR =>", user);
         return { props: { user } };
     } catch (error) {
         return {
@@ -31,11 +30,13 @@ export async function getServerSideProps(context) {
     }
 }
 
-export default function Home({ user }) {
+function patientlist({ user }) {
     return (
         <>
             <Navbarsection />
-            <HomeSection />
+            <PatientList />
         </>
     );
 }
+
+export default patientlist;
