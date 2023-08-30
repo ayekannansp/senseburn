@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames';
 
-function CensorList() {
+function PatientCensorList() {
 
     const datas = [
         {
@@ -50,4 +50,4 @@ function CensorList() {
     )
 }
 
-export default CensorList
+export default PatientCensorList
