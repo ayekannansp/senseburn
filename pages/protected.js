@@ -1,11 +1,7 @@
-import React from "react";
 import jwt from "jsonwebtoken";
-import HomeSection from "@/components/HomeSection";
-import Navbarsection from "@/components/shared/Navbarsection";
 
 export async function getServerSideProps(context) {
     const token = context.req.cookies.auth;
-    console.log("TKN =>", token);
 
     if (!token) {
         return {
@@ -19,7 +15,6 @@ export async function getServerSideProps(context) {
     try {
         const decoded = jwt.verify(token, "YOUR_INTERNAL_SECRET");
         const user = decoded.user;
-        console.log("USR =>", user);
         return { props: { user } };
     } catch (error) {
         return {
@@ -31,11 +26,8 @@ export async function getServerSideProps(context) {
     }
 }
 
-export default function Home({ user }) {
-    return (
-        <>
-            <Navbarsection />
-            <HomeSection />
-        </>
-    );
-}
+const ProtectedPage = ({ user }) => {
+    return <div>This is a protected page. {user}</div>;
+};
+
+export default ProtectedPage;
