@@ -18,7 +18,7 @@ const Login = () => {
 
             if (data.message === "Authentication successful") {
                 localStorage.setItem("isLoggedIn", "true"); // Set flag
-                router.push("/containers");
+                router.push("/patients");
             }
         } catch (error) {
             if (

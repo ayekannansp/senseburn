@@ -1,17 +1,43 @@
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import Form from 'react-bootstrap/Form';
+import { InputText } from 'primereact/inputtext';
 
 function PatientDetail() {
     return (
-        <>
-            <Form.Group className="mb-4">
+        <div className='add-patients'>
+            <Form.Group className="mb-1 mb-md-3">
                 <Row>
-                    <Col>
+                    <Col xl={4} md={12} className="mb-1 mb-md-0">
+                        <Form.Label>First name</Form.Label>
+                        <Form.Control type="text" id="f_name" placeholder="Enter first name" />
+                    </Col>
+                    <Col xl={4} md={12} className="mb-1 mb-md-0">
+                        <Form.Label>Last name</Form.Label>
+                        <Form.Control type="text" id="l_name" placeholder="Enter last name" />
+
+                    </Col>
+                    <Col xl={4} md={12}>
                         <Form.Label>Patient ID</Form.Label>
                         <Form.Control type="text" placeholder="Enter patient ID" />
                     </Col>
-                    <Col>
+                </Row>
+            </Form.Group>
+            <Form.Group className="mb-1 mb-md-3">
+                <Row>
+                    <Col xl={6} md={12} className="mb-1 mb-md-0">
+                        <Form.Label>Height(CM)</Form.Label>
+                        <Form.Control type="number" id="height" placeholder="Enter Height(CM)" />
+                    </Col>
+                    <Col xl={6} md={12}>
+                        <Form.Label>Weight(KG)</Form.Label>
+                        <Form.Control type="number" id="weight" placeholder="Enter Weight(KG)" />
+                    </Col>
+                </Row>
+            </Form.Group>
+            <Form.Group className="mb-1 mb-md-3">
+                <Row>
+                    <Col xl={6} md={12} className="mb-1 mb-md-0">
                         <Form.Label>Gender</Form.Label>
                         {['radio'].map((type) => (
                             <div key={`inline-${type}`} >
@@ -32,38 +58,15 @@ function PatientDetail() {
                             </div>
                         ))}
                     </Col>
-                </Row>
-            </Form.Group>
-            <Form.Group className="mb-4">
-                <Row>
-                    <Col>
-                        <Form.Label>First name</Form.Label>
-                        <Form.Control type="text" id="f_name" placeholder="Enter first name" />
-                    </Col>
-                    <Col>
-                        <Form.Label>Last name</Form.Label>
-                        <Form.Control type="text" id="l_name" placeholder="Enter last name" />
-
-                    </Col>
-                </Row>
-            </Form.Group>
-            <Form.Group className="mb-0">
-                <Row>
-                    <Col>
-                        <Form.Label>Height(CM)</Form.Label>
-                        <Form.Control type="number" id="height" placeholder="Enter Height(CM)" />
-                    </Col>
-                    <Col>
-                        <Form.Label>Weight(KG)</Form.Label>
-                        <Form.Control type="number" id="weight" placeholder="Enter Weight(KG)" />
-                    </Col>
-                    <Col>
+                    <Col xl={6} md={12}>
                         <Form.Label>Age</Form.Label>
                         <Form.Control type="number" id="age" placeholder="Enter Age" />
                     </Col>
                 </Row>
             </Form.Group>
-        </>
+
+
+        </div>
     )
 }
 

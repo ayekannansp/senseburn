@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import HomeSection from "@/components/HomeSection";
 import Navbarsection from "@/components/shared/Navbarsection";
 import Dashboard from "@/components/dashboard/Dashboard";
-import SideNav from "@/components/shared/icon/SideNav";
+import SideNav from "@/components/shared/SideNav";
 
 export async function getServerSideProps(context) {
     const token = context.req.cookies.auth;

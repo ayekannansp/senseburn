@@ -2,6 +2,7 @@ import React from 'react'
 import { Container, Row, Col, Table } from 'react-bootstrap'
 import jwt from "jsonwebtoken";
 import Navbarsection from '@/components/shared/Navbarsection';
+import SideNav from '@/components/shared/SideNav';
 
 
 export async function getServerSideProps(context) {
@@ -89,8 +90,9 @@ function History() {
     return (
         <>
             <Navbarsection />
-            <section className='py-5'>
-                <Container>
+            <SideNav/>
+            <section className='layout'>
+                <Container fluid className='px-0'>
                     <Row>
                         <Col>
                             <Table striped hover>

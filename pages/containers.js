@@ -2,7 +2,7 @@ import Containers from '@/components/containers/Containers'
 import React from 'react'
 import jwt from "jsonwebtoken";
 import Navbarsection from "@/components/shared/Navbarsection";
-import SideNav from "@/components/shared/icon/SideNav";
+import SideNav from "@/components/shared/SideNav";
 
 
 

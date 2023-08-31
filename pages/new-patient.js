@@ -1,4 +1,4 @@
-import AddPatient from '@/components/addPatient/AddPatient'
+import AddPatient from '@/components/patients/addPatient/AddPatient'
 import Navbarsection from '@/components/shared/Navbarsection'
 import React from 'react'
 

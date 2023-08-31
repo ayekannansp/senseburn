@@ -26,9 +26,11 @@ body {
   min-height: 100vh;
   background-color: #f8f9fc;
 }
+
 .p-component {
   font-family: 'Modern-Era-medium' !important;
 }
+
 h1,
 h2,
 h3,
@@ -399,7 +401,7 @@ ul.censor-list li {
   background-color: #F0F0F0;
   position: relative;
   position: absolute;
-  width: 96%;
+  width: 100%;
   top: 20px;
 }
 
@@ -455,7 +457,6 @@ ul.censor-list li {
 .image-container {
   width: 60px;
   height: 60px;
-  margin: 0 5px 5px 0;
 }
 
 .uploader img {
@@ -501,10 +502,10 @@ input.cm.form-control {
 }
 
 .wrapper {
-  height: 60vh;
+  height: 66vh;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 0 15px;
+  padding: 24px 3px;
 }
 
 /* width */
@@ -625,8 +626,6 @@ table.patient-list img {
 
 .img-td img {
   border-radius: 50%;
-  width: 33px !important;
-  height: 33px !important;
 }
 
 .img-td {
@@ -675,7 +674,7 @@ nav.navbar {
   color: #636363;
   width: 100%;
   text-decoration: none;
-  padding: 20px 0;
+  padding: 15px 0;
   display: flex;
   text-align: center;
   align-items: center;
@@ -691,7 +690,8 @@ nav.navbar {
 
 
 .layout {
-  padding: 102px 20px 20px 140px;
+  padding: 102px 20px 15px 140px;
+  min-height: 100vh;
 }
 
 .sidenav ul li.active a {
@@ -715,66 +715,188 @@ nav.navbar {
   border-radius: 6px;
 }
 
-@media(max-width:576px) {
+@media(max-width:992px) {
   .sidenav {
-    width: 90px;
+    width: 60px;
+    height: calc(100vh - 53px);
+    padding: 5px 0;
+  }
+
+  .p-dataview-layout-options {
+    display: none !important;
+  }
+
+
+  button {
+    font-size: 12px !important;
+  }
+
+  .navbar-brand span {
+    font-style: normal;
+    color: #3f51b5;
+    font-weight: 400;
+    font-size: 16px;
   }
 
   .layout {
-    padding: 102px 20px 20px 110px;
+    padding: 63px 15px 15px 70px;
   }
 
   .sidenav ul li a {
-    font-size: 12px;
+    padding: 10px 0;
+  }
+
+  .add-patients .form-control {
+    padding: 0.25rem 0rem !important;
+    background-color: transparent !important;
+    border: 0px !important;
+    border-bottom: 1px solid #b6bdcb !important;
+    border-radius: 0px;
+    font-size: 14px;
+  }
+
+  .add-patients .p-inputtext {
+    padding: 0.25rem 0rem !important;
+    background-color: transparent !important;
+    border: 0px !important;
+    border-bottom: 1px solid #b6bdcb !important;
+    border-radius: 0px;
+    font-size: 14px;
+  }
+
+  .p-float-label>label {
+    left: 0rem !important;
+  }
+
+  .p-inputtext:enabled:focus {
+    box-shadow: none !important;
+  }
+
+  .form-label {
+    margin-bottom: 0.25rem;
+    color: #5f6368;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 10px;
+  }
+
+  .sidenav ul li a {
+    font-size: 10px;
   }
 }
 
-.max-600{
+.max-600 {
   max-width: 600px;
 }
 
 .capitalize {
   text-transform: capitalize !important;
 }
-.data{
+
+.data {
   font-size: 18px;
   color: #000;
 }
-.uppercase{
+
+.uppercase {
   text-transform: uppercase;
 }
 
-.p-grid.grid.p-nogutter.grid-nogutter .col-12:not(:first-child) th{
+.p-grid.grid.p-nogutter.grid-nogutter .col-12:not(:first-child) th {
   display: none !important;
 }
 
-.p-grid.grid.p-nogutter.grid-nogutter .col-12 td{
+.p-grid.grid.p-nogutter.grid-nogutter .col-12 td {
   width: 25%;
 }
+
 .p-dataview .p-dataview-header {
   margin-bottom: 15px !important;
 }
+
 .table>:not(caption)>*>* {
   border-bottom-width: 0px;
 }
-.p-grid.grid.p-nogutter.grid-nogutter .col-12:nth-child(even) th{
+
+.p-grid.grid.p-nogutter.grid-nogutter .col-12:nth-child(even) th {
   display: none !important;
 }
 
-.p-grid.grid .col-12:nth-child(2n) .table>:not(caption)>*>*{
- box-shadow: none !important;
+.p-grid.grid .col-12:nth-child(2n) .table>:not(caption)>*>* {
+  box-shadow: none !important;
 }
+
 .p-dataview-emptymessage {
   padding: 20px;
   text-align: center;
 }
-.p-dataview-layout-options{
+
+.p-dataview-layout-options {
   flex-wrap: nowrap;
   display: flex;
 }
+
 .device-list td {
   width: 16.6666666667% !important;
 }
-.pointer{
+
+.pointer {
   cursor: pointer;
+}
+
+.p-dropdown {
+  width: 100% !important;
+}
+
+.footer {
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  padding: 15px;
+}
+
+.p-dropdown {
+  background: transparent !important;
+}
+
+.p-inputtext {
+  margin: 0;
+  width: 100%;
+  background: transparent !important;
+}
+
+.p-inputnumber {
+  display: inline-flex;
+  width: 100%;
+}
+
+.p-inputnumber-float-label-container {
+  position: relative;
+}
+
+.p-inputnumber-float-label-container label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-50%);
+  padding: 0 0.5rem;
+  font-size: 0.875rem;
+  background-color: white;
+  pointer-events: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.p-inputnumber-float-label-container input {
+  padding: 1rem 0.5rem;
+  padding-top: 1.75rem;
+}
+
+.header-bar {
+  background: #ebeef1 !important;
+  border-radius: 6px;
+  padding: 15px;
+}
+thead {
+  background: #fff;
 }

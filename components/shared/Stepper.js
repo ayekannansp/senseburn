@@ -21,7 +21,6 @@ function Stepper(props) {
             <div className="progress-bar">
                 <div className="progress-bar-fill" style={{ width: stepBarWidth }}></div>
             </div>
-            <div className='py-2'></div>
         </>
     )
 }
