@@ -3,10 +3,10 @@ import React from "react";
 import jwt from "jsonwebtoken";
 import Navbarsection from "@/components/shared/Navbarsection";
 import SideNav from "@/components/shared/icon/SideNav";
+import Tags from "@/components/tags";
 
 export async function getServerSideProps(context) {
     const token = context.req.cookies.auth;
-    console.log("TKN =>", token);
 
     if (!token) {
         return {
@@ -20,7 +20,7 @@ export async function getServerSideProps(context) {
     try {
         const decoded = jwt.verify(token, "YOUR_INTERNAL_SECRET");
         const user = decoded.user;
-        console.log("USR =>", user);
+
         return { props: { user } };
     } catch (error) {
         return {
@@ -36,6 +36,7 @@ function tags() {
         <>
             <Navbarsection />
             <SideNav />
+            <Tags />
         </>
     );
 }

@@ -18,16 +18,19 @@ export default function Location() {
         setfilteredDatas(
             datas.filter(
                 (data) =>
-                    String(data.age)
+                    String(data.name)
                         .toLowerCase()
                         .includes(searchText.toLowerCase()) ||
-                    String(data.height)
+                    String(data.address)
                         .toLowerCase()
                         .includes(searchText.toLowerCase()) ||
-                    String(data.weight)
+                    String(data.poBox)
                         .toLowerCase()
                         .includes(searchText.toLowerCase()) ||
-                    data.userCreated
+                    String(data.zip)
+                        .toLowerCase()
+                        .includes(searchText.toLowerCase()) ||
+                    String(data.country)
                         .toLowerCase()
                         .includes(searchText.toLowerCase()) ||
                     data.dateCreated
