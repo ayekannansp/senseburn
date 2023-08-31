@@ -83,23 +83,25 @@ function PatientList() {
                                             <th>Gender</th>
                                             <th>Age</th>
                                             <th>Image</th>
-                                            <th>Actions</th>
+                                            <th className='text-right'>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {datas.map((data, index) => (
-                                            <tr key={index}>
+                                            <tr key={index} >
                                                 <td>{data.name}</td>
                                                 <td>{data.gender}</td>
                                                 <td>{data.age}</td>
-                                                <td className='img-td'>
-                                                    {data.img.map((imgPath, imgIndex) => (
-                                                        <div key={imgIndex}>
-                                                            <Image src={imgPath}  />
-                                                        </div>
-                                                    ))}
+                                                <td >
+                                                    <span className='img-td'>
+                                                        {data.img.map((imgPath, imgIndex) => (
+                                                            <span key={imgIndex}>
+                                                                <Image src={imgPath} />
+                                                            </span>
+                                                        ))}
+                                                    </span>
                                                 </td>
-                                                <td>
+                                                <td className='text-right'>
                                                     <Dropdown drop='start'>
                                                         <Dropdown.Toggle id="action" variant="transparent" className='p-0'>
                                                             <VerticalIcon />

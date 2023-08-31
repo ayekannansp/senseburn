@@ -35,8 +35,8 @@ function Navbarsection() {
 
     return (
         <Navbar bg="white" expand="lg" className="py-3">
-            <Container>
-                <Navbar.Brand href="/">
+            <Container fluid>
+                <Navbar.Brand href="/containers">
                     <span>Mars</span>
                 </Navbar.Brand> 
                 <Nav className="ms-auto">

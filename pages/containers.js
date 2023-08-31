@@ -1,9 +1,10 @@
-import React from "react";
+import Containers from '@/components/Containers/Containers'
+import React from 'react'
 import jwt from "jsonwebtoken";
-import HomeSection from "@/components/HomeSection";
 import Navbarsection from "@/components/shared/Navbarsection";
-import Dashboard from "@/components/dashboard/Dashboard";
 import SideNav from "@/components/shared/icon/SideNav";
+
+
 
 export async function getServerSideProps(context) {
     const token = context.req.cookies.auth;
@@ -32,13 +33,14 @@ export async function getServerSideProps(context) {
         };
     }
 }
-
-export default function Home({ user }) {
+function containers() {
     return (
         <>
             <Navbarsection />
             <SideNav/>
-            <Dashboard/>
+            <Containers/>
         </>
-    );
+    )
 }
+
+export default containers
