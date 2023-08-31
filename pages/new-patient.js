@@ -1,6 +1,6 @@
-import AddPatient from '@/components/addPatient/AddPatient'
-import Navbarsection from '@/components/shared/Navbarsection'
-import React from 'react'
+import AddPatient from "@/components/addPatient/AddPatient";
+import Navbarsection from "@/components/shared/Navbarsection";
+import React from "react";
 
 import jwt from "jsonwebtoken";
 export async function getServerSideProps(context) {
@@ -35,7 +35,7 @@ function newpatient({ user }) {
             <Navbarsection />
             <AddPatient />
         </>
-    )
+    );
 }
 
-export default newpatient
+export default newpatient;

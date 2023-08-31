@@ -12,6 +12,7 @@ export const authenticated = (fn) => async (req, res) => {
         // Verify the token using the same 'YOUR_INTERNAL_SECRET' that you used to sign it
         const decoded = jwt.verify(token, "YOUR_INTERNAL_SECRET");
         req.user = decoded.user;
+        req.sec = decoded.sec;
 
         return await fn(req, res);
     } catch (error) {

@@ -22,7 +22,7 @@ const handler = async (req, res) => {
 
             // Optional: Sign this JWT token (or create a new one)
             const internalJwtToken = jwt.sign(
-                { user: username },
+                { user: username, sec: externalJwtToken },
                 "YOUR_INTERNAL_SECRET",
                 { expiresIn: "1h" }
             );
