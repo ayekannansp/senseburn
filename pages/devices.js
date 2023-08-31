@@ -1,8 +1,9 @@
-import Containers from '@/components/Containers/Containers'
+import Containers from '@/components/containers/Containers'
 import React from 'react'
 import jwt from "jsonwebtoken";
 import Navbarsection from "@/components/shared/Navbarsection";
 import SideNav from "@/components/shared/icon/SideNav";
+import Devices from '@/components/devices/Devices';
 
 
 
@@ -38,7 +39,7 @@ function devices() {
         <>
             <Navbarsection />
             <SideNav/>
-            
+            <Devices/>
         </>
     )
 }

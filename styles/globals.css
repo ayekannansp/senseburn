@@ -26,7 +26,9 @@ body {
   min-height: 100vh;
   background-color: #f8f9fc;
 }
-
+.p-component {
+  font-family: 'Modern-Era-medium' !important;
+}
 h1,
 h2,
 h3,
@@ -636,7 +638,7 @@ table.patient-list img {
   text-align: right;
 }
 
-nav.navbar{
+nav.navbar {
   border-bottom: 1px solid gainsboro;
   position: fixed;
   width: 100%;
@@ -656,6 +658,7 @@ nav.navbar{
   background-color: #fff;
   z-index: 99;
 }
+
 .sidenav ul {
   width: 100%;
   padding-left: 0rem;
@@ -688,22 +691,87 @@ nav.navbar{
 
 
 .layout {
-  margin: 102px 20px 20px 140px;
+  padding: 102px 20px 20px 140px;
 }
 
 .sidenav ul li.active a {
   color: #6366f1;
 }
+
 .p-dataview-grid .p-dataview-content {
   margin: 0 -8px !important;
 }
 
-.p-dataview-grid  .p-dataview-content {
+.p-dataview-grid .p-dataview-content {
   background: #f8f9fc !important;
 }
+
 .p-dataview .p-dataview-header {
   border: 0px solid #dee2e6 !important;
 }
+
 .p-dataview .p-dataview-header {
   background: #ebeef1 !important;
+  border-radius: 6px;
+}
+
+@media(max-width:576px) {
+  .sidenav {
+    width: 90px;
+  }
+
+  .layout {
+    padding: 102px 20px 20px 110px;
+  }
+
+  .sidenav ul li a {
+    font-size: 12px;
+  }
+}
+
+.max-600{
+  max-width: 600px;
+}
+
+.capitalize {
+  text-transform: capitalize !important;
+}
+.data{
+  font-size: 18px;
+  color: #000;
+}
+.uppercase{
+  text-transform: uppercase;
+}
+
+.p-grid.grid.p-nogutter.grid-nogutter .col-12:not(:first-child) th{
+  display: none !important;
+}
+
+.p-grid.grid.p-nogutter.grid-nogutter .col-12 td{
+  width: 25%;
+}
+.p-dataview .p-dataview-header {
+  margin-bottom: 15px !important;
+}
+.table>:not(caption)>*>* {
+  border-bottom-width: 0px;
+}
+.p-grid.grid.p-nogutter.grid-nogutter .col-12:nth-child(even) th{
+  display: none !important;
+}
+
+.p-grid.grid .col-12:nth-child(2n) .table>:not(caption)>*>*{
+ box-shadow: none !important;
+}
+.p-dataview-emptymessage {
+  padding: 20px;
+  text-align: center;
+}
+.p-dataview-layout-options{
+  flex-wrap: nowrap;
+  display: flex;
+}
+.device-list td {
+  width: 16.6666666667% !important;
 }
