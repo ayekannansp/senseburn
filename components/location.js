@@ -3,79 +3,75 @@ import React, { useState, useEffect } from 'react';
 import { DataView, DataViewLayoutOptions } from 'primereact/dataview';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
-import SearchIcon from '../shared/icon/SearchIcon';
 import { Col, Table } from 'react-bootstrap';
+import SearchIcon from './shared/icon/SearchIcon';
 
-import RowData from './RowData';
 
-
-export default function Containers() {
+export default function Location() {
     const [datas, setDatas] = useState([]);
     const [layout, setLayout] = useState('grid');
     const [searchText, setSearchText] = useState('');
-    const [showModal, setShowModal] = useState(false);
 
-    const [fullscreen, setFullscreen] = useState(true);
-    const handleShow = () => {
-        setShowModal(true);
-    };
 
-    const handleClose = () => {
-        setShowModal(false);
-    };
-
-    const containerData = {
-        "@context": "/api/contexts/Container",
-        "@id": "/api/containers",
+    const locationData = {
+        "@context": "/api/contexts/Client",
+        "@id": "/api/clients",
+        "@type": "hydra:Collection",
         "hydra:member": [
             {
-                "@id": "/api/containers/1ee36960-ab2b-6bde-9c3c-8f85a6522499",
-                "@type": "Container",
-                "dataFormatVersion": "Test version",
-                "measurementType": "RI",
-                "userCreated": "-",
-                "dateCreated": "12-05-2023",
-                "devices": ["/api/devices/1ed6030c-4e34-6420-a6ff-81111d99f353"],
-                "clients": ["/api/clients/1ed602b6-241d-6246-83a0-8d196db9b54f"],
-                "dataRaws": [],
-                "dataAnalysis": [],
-                "tags": [],
-                "User": "/api/users/1ed59694-cec9-6656-af18-6bcb1cc34486"
+                "@id": "/api/clients/1ed602b6-241d-6246-83a0-8d196db9b54f",
+                "@type": "Client",
+                "age": 18,
+                "height": 80,
+                "weight": 180,
+                "userCreated": "12-5-2023",
+                "dateCreated": "12-5-2023",
+                "user": "/api/users/1ed59694-cec9-6656-af18-6bcb1cc34486",
+                "locations": [
+                    "/api/locations/1ed60237-7ebe-6fe4-95c1-db3bd3113326"
+                ],
+                "containers": [
+                    "/api/containers/1ee36960-ab2b-6bde-9c3c-8f85a6522499"
+                ]
             }
         ],
         "hydra:totalItems": 1
     };
 
+
+
     useEffect(() => {
-        setDatas(containerData["hydra:member"]);
+        setDatas(locationData["hydra:member"]);
     }, []);
 
     const filteredDatas = datas.filter(data =>
-        data.dataFormatVersion.toLowerCase().includes(searchText.toLowerCase()) ||
-        data.measurementType.toLowerCase().includes(searchText.toLowerCase()) ||
+        String(data.age).toLowerCase().includes(searchText.toLowerCase()) ||
+        String(data.height).toLowerCase().includes(searchText.toLowerCase()) ||
+        String(data.weight).toLowerCase().includes(searchText.toLowerCase()) ||
         data.userCreated.toLowerCase().includes(searchText.toLowerCase()) ||
-        data.dateCreated.toLowerCase().includes(searchText.toLowerCase())
+        data.dateCreated.toLowerCase().includes(searchText.toLowerCase()) 
     );
 
     const listItem = (data) => {
         return (
             <div className="col-12">
-                <Table striped hover className='patient-list mb-0' >
+                <Table striped hover className='device-list mb-0' >
                     <thead>
                         <tr>
-                            <th>Format</th>
-                            <th>Measurment type</th>
+                            <th>Age</th>
+                            <th>Height</th>
+                            <th>Weight</th>
                             <th>Created by</th>
                             <th>Date</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr >
-                            <td>{data.dataFormatVersion}</td>
-                            <td>{data.measurementType}</td>
+                        <tr>
+                            <td>{data.age}</td>
+                            <td>{data.height}</td>
+                            <td>{data.weight}</td>
                             <td>{data.userCreated}</td>
                             <td>{data.dateCreated}</td>
-                            <td onClick={handleShow} className='pe-4 pointer'><i className="pi pi-eye"></i></td>
                         </tr>
                     </tbody>
                 </Table>
@@ -85,23 +81,30 @@ export default function Containers() {
 
     const gridItem = (data) => {
         return (
-            <Col className=" p-2 pointer" lg={3} md={6} xs={12} onClick={handleShow}>
+            <Col className=" p-2" lg={3} md={6} xs={12}>
                 <div className="p-4 border-1 surface-border surface-card border-round">
                     <div className="flex flex-wrap align-items-center justify-content-between gap-2">
                         <div className="align-items-center gap-2">
-                            <span className="d-block ">Format</span>
-                            <span className=" capitalize data">{data.dataFormatVersion}</span>
+                            <span className="d-block ">Age</span>
+                            <span className=" capitalize data">{data.age}</span>
                         </div>
                         <div className=" align-items-center gap-2">
-                            <span className="d-block ">Measurement type</span>
-                            <span className=" data">{data.measurementType}</span>
+                            <span className="d-block ">Height</span>
+                            <span className=" data">{data.height}</span>
                         </div>
                     </div>
                     <div className="flex flex-wrap align-items-center justify-content-between gap-2 mt-4">
                         <div className="align-items-center gap-2">
-                            <span className="d-block ">Created by</span>
-                            <span className=" data uppercase">{data.userCreated}</span>
+                            <span className="d-block ">Weight</span>
+                            <span className=" capitalize data">{data.weight}</span>
                         </div>
+                        <div className="align-items-center gap-2">
+                            <span className="d-block ">Created by</span>
+                            <span className=" capitalize data">{data.userCreated}</span>
+                        </div>
+                    </div>
+                    <div className="flex flex-wrap align-items-center justify-content-between gap-2 mt-4">
+                       
                         <div className=" align-items-center gap-2">
                             <span className="d-block ">Date</span>
                             <span className=" data">{data.dateCreated}</span>
@@ -109,6 +112,7 @@ export default function Containers() {
                     </div>
                 </div>
             </Col>
+
         );
     };
 
@@ -138,11 +142,8 @@ export default function Containers() {
     };
 
     return (
-        <>
-            <div className="layout">
-                <DataView value={filteredDatas} itemTemplate={itemTemplate} layout={layout} header={header()} />
-            </div>
-            <RowData show={showModal} fullscreen={fullscreen} handleClose={handleClose} />
-        </>
+        <div className="layout">
+            <DataView value={filteredDatas} itemTemplate={itemTemplate} layout={layout} header={header()} />
+        </div>
     )
 }

@@ -9,7 +9,7 @@ import { Col, Table } from 'react-bootstrap';
 
 export default function Devices() {
     const [datas, setDatas] = useState([]);
-    const [layout, setLayout] = useState('list');
+    const [layout, setLayout] = useState('grid');
     const [searchText, setSearchText] = useState('');
 
 
@@ -24,32 +24,6 @@ export default function Devices() {
                 "registeredAt": 1667999809,
                 "version": "Example Device Version",
                 "serial": "Example Device serial",
-                "userCreated": "12-05-2022",
-                "userUpdated": "15-12-2022",
-                "dateCreated": '12-05-2022',
-                "user": "/api/users/1ed59694-cec9-6656-af18-6bcb1cc34486",
-                "locations": ["/api/locations/1ed60237-7ebe-6fe4-95c1-db3bd3113326"],
-                "containers": ["/api/containers/1ee36960-ab2b-6bde-9c3c-8f85a6522499"]
-            },
-            {
-                "@id": "/api/devices/1ed6030c-4e34-6420-a6ff-81111d99f353",
-                "@type": "Device",
-                "registeredAt": 1667999809,
-                "version": "Example Device ",
-                "serial": "Example  serial",
-                "userCreated": "12-05-2022",
-                "userUpdated": "15-12-2022",
-                "dateCreated": '12-05-2022',
-                "user": "/api/users/1ed59694-cec9-6656-af18-6bcb1cc34486",
-                "locations": ["/api/locations/1ed60237-7ebe-6fe4-95c1-db3bd3113326"],
-                "containers": ["/api/containers/1ee36960-ab2b-6bde-9c3c-8f85a6522499"]
-            },
-            {
-                "@id": "/api/devices/1ed6030c-4e34-6420-a6ff-81111d99f353",
-                "@type": "Device",
-                "registeredAt": 1667999809,
-                "version": "Example  Version",
-                "serial": "serial",
                 "userCreated": "12-05-2022",
                 "userUpdated": "15-12-2022",
                 "dateCreated": '12-05-2022',
@@ -120,6 +94,16 @@ export default function Devices() {
                     <div className="flex flex-wrap align-items-center justify-content-between gap-2 mt-4">
                         <div className="align-items-center gap-2">
                             <span className="d-block ">Serail: <span className="data">{data.serial}</span></span>
+                        </div>
+                    </div>
+                    <div className="flex flex-wrap align-items-center justify-content-between gap-2 mt-4">
+                        <div className="align-items-center gap-2">
+                            <span className="d-block ">User Created On</span>
+                            <span className=" capitalize data">{data.userCreated}</span>
+                        </div>
+                        <div className=" align-items-center gap-2">
+                            <span className="d-block ">User Updated On</span>
+                            <span className=" data">{data.userUpdated}</span>
                         </div>
                     </div>
                 </div>

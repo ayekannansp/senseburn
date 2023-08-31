@@ -3,6 +3,7 @@ import React from 'react'
 import jwt from "jsonwebtoken";
 import Navbarsection from "@/components/shared/Navbarsection";
 import SideNav from "@/components/shared/icon/SideNav";
+import Location from '@/components/location';
 
 
 
@@ -38,7 +39,7 @@ function location() {
         <>
             <Navbarsection />
             <SideNav/>
-            
+            <Location/>
         </>
     )
 }
