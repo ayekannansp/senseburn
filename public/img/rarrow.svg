@@ -3,19 +3,19 @@
     width="24"
     height="10"
     viewBox="0 0 81 20"
-    class="right-arrow">
+    className="right-arrow">
     <g fill="none" fill-rule="evenodd">
         <g stroke="#000" stroke-width="3">
             <g>
                 <g>
                     <g>
                         <path
-                            class="arrow-head"
+                            className="arrow-head"
                             d="M16.899 2.899L16.898 16.898 2.899 16.899"
                             transform="translate(-767 -827) translate(736 642) translate(31.88 185.1) translate(57.203) rotate(-45 9.9 9.9)"></path>
                     </g>
                     <path
-                        class="arrow-line"
+                        className="arrow-line"
                         d="M76.163 9.899L0 9.899"
                         transform="translate(-767 -827) translate(736 642) translate(31.88 185.1)"></path>
                 </g>
