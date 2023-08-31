@@ -206,6 +206,9 @@ a.sense-card:hover {
 .navbar-brand {
   font-size: 26px;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 a.navbar-brand span {
@@ -571,4 +574,55 @@ ul.censor-list {
   background: linear-gradient(90deg, #ffffff 50%, #f3f4f5 50%);
   padding: 40px;
 
+}
+
+@media(max-width:1280px) {
+  .left-wrapper {
+    display: none;
+  }
+
+  .login-wrapper {
+    min-width: 100%;
+  }
+
+  .right-wrapper {
+    width: 100%;
+    padding: 30px;
+  }
+}
+
+.card-head .dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+}
+
+.card-head .dropdown-item:not(:last-child) {
+  border-bottom: 1px solid gainsboro;
+}
+
+.icon-btn {
+  gap: 5px;
+}
+
+.icon-btn button {
+  display: flex;
+  align-items: center;
+  width: 44px;
+  height: 42px;
+  justify-content: center;
+}
+
+table.patient-list img {
+  width: 40px;
+  height: 40px;
+}
+
+td.img-td img {
+  border-radius: 50%;
+}
+td.img-td {
+  display: flex;
+  gap: 5px;
 }

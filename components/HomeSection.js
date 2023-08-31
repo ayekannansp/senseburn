@@ -15,7 +15,7 @@ function HomeSection() {
                 <div className='d-flex align-items-center gap-4'><div className="pulse"><Image src='/img/right.png' alt='arrow' /></div>Click here to add a new patient</div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="10" viewBox="0 0 81 20" class="right-arrow"><g fill="none" fill-rule="evenodd"><g stroke="#000" strokeWidth="3"><g><g><g><path class="arrow-head" d="M16.899 2.899L16.898 16.898 2.899 16.899" transform="translate(-767 -827) translate(736 642) translate(31.88 185.1) translate(57.203) rotate(-45 9.9 9.9)"></path></g><path class="arrow-line" d="M76.163 9.899L0 9.899" transform="translate(-767 -827) translate(736 642) translate(31.88 185.1)"></path></g></g></g></g></svg>
               </Link>
-              <Link href='/patient-list' className='sense-card'>
+              <Link href='/patients' className='sense-card'>
                 <div className='d-flex align-items-center gap-4'><div className="pulse"><Image src='/img/right.png' alt='arrow' /></div>Click here to view patient list</div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="10" viewBox="0 0 81 20" class="right-arrow"><g fill="none" fill-rule="evenodd"><g stroke="#000" strokeWidth="3"><g><g><g><path class="arrow-head" d="M16.899 2.899L16.898 16.898 2.899 16.899" transform="translate(-767 -827) translate(736 642) translate(31.88 185.1) translate(57.203) rotate(-45 9.9 9.9)"></path></g><path class="arrow-line" d="M76.163 9.899L0 9.899" transform="translate(-767 -827) translate(736 642) translate(31.88 185.1)"></path></g></g></g></g></svg>
               </Link>

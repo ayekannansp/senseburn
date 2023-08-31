@@ -1,7 +1,6 @@
 import PatientList from "@/components/PatientList";
 import Navbarsection from "@/components/shared/Navbarsection";
 import React from "react";
-
 import jwt from "jsonwebtoken";
 
 export async function getServerSideProps(context) {

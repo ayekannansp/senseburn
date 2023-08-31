@@ -37,8 +37,8 @@ function Navbarsection() {
         <Navbar bg="white" expand="lg" className="py-3">
             <Container>
                 <Navbar.Brand href="/">
-                    <span>New</span> logo
-                </Navbar.Brand>
+                    <span>Mars</span>
+                </Navbar.Brand> 
                 <Nav className="ms-auto">
                     <Button
                         variant="dark"
