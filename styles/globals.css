@@ -24,7 +24,7 @@
 body {
   font-family: 'Modern-Era-medium' !important;
   min-height: 100vh;
-  background: #f8f9fc;
+  background-color: #f8f9fc;
 }
 
 h1,
@@ -689,4 +689,21 @@ nav.navbar{
 
 .layout {
   margin: 102px 20px 20px 140px;
+}
+
+.sidenav ul li.active a {
+  color: #6366f1;
+}
+.p-dataview-grid .p-dataview-content {
+  margin: 0 -8px !important;
+}
+
+.p-dataview-grid  .p-dataview-content {
+  background: #f8f9fc !important;
+}
+.p-dataview .p-dataview-header {
+  border: 0px solid #dee2e6 !important;
+}
+.p-dataview .p-dataview-header {
+  background: #ebeef1 !important;
 }

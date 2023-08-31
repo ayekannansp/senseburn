@@ -34,15 +34,15 @@ function Navbarsection() {
     };
 
     return (
-        <Navbar bg="white" expand="lg" className="py-3">
+        <Navbar bg="white" expand="lg" className="py-3 px-2">
             <Container fluid>
                 <Navbar.Brand href="/containers">
-                    <span>Mars</span>
+                    <span>MAS</span>
                 </Navbar.Brand> 
                 <Nav className="ms-auto">
                     <Button
                         variant="dark"
-                        className="px-4 py-2"
+                        className="px-4 py-2 rounded-1"
                         onClick={handleAuth}>
                         {isLoggedIn ? "Sign-out" : "Sign-in"}
                     </Button>
