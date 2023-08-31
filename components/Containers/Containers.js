@@ -5,6 +5,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import SearchIcon from "../shared/icon/SearchIcon";
 import { Col, Table } from "react-bootstrap";
 import axios from "axios";
+import useFetchUser from "@/hooks/useFetchUser";
 
 import ContainerRawData from "./ContainerRawData";
 
@@ -69,7 +70,9 @@ export default function Containers() {
         setShowModal(false);
     };
 
-    const listItem = (data) => {
+    const ListItem = (data) => {
+        const { user, loading, error } = useFetchUser(data.User);
+
         return (
             <div className="col-12">
                 <Table striped hover className="patient-list mb-0">
@@ -83,10 +86,20 @@ export default function Containers() {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{data.dataFormatVersion}</td>
+                            <td>
+                                <span className=" data capitalize">
+                                    {data.dataFormatVersion}
+                                </span>
+                            </td>
                             <td>{data.measurementType}</td>
-                            {/* <td>{data.userCreated}</td> */}
-                            <td>-</td>
+                            <td>
+                                <span className=" data capitalize">
+                                    {(user?.firstName || "") +
+                                        " " +
+                                        (user?.lastName || "")}
+                                </span>
+                            </td>
+
                             <td>
                                 {new Intl.DateTimeFormat("en-GB").format(
                                     new Date(Date(data.dateCreated))
@@ -106,7 +119,8 @@ export default function Containers() {
         );
     };
 
-    const gridItem = (data) => {
+    const GridItem = (data) => {
+        const { user, loading, error } = useFetchUser(data.User);
         return (
             <Col
                 className=" p-2 pointer"
@@ -133,9 +147,10 @@ export default function Containers() {
                     <div className="flex flex-wrap align-items-center justify-content-between gap-2 mt-4">
                         <div className="align-items-center gap-2">
                             <span className="d-block ">Created by</span>
-                            <span className=" data uppercase">
-                                {" "}
-                                -{/* {data.userCreated} */}
+                            <span className=" data capitalize">
+                                {(user?.firstName || "") +
+                                    " " +
+                                    (user?.lastName || "")}
                             </span>
                         </div>
                         <div className=" align-items-center gap-2">
@@ -157,8 +172,8 @@ export default function Containers() {
             return;
         }
 
-        if (layout === "grid") return gridItem(data);
-        else if (layout === "list") return listItem(data);
+        if (layout === "grid") return GridItem(data);
+        else if (layout === "list") return ListItem(data);
     };
 
     const header = () => {

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import MyLineChart from "../shared/Chart";
+
 import axios from "axios";
-//import { data } from "./data";
 
 function ContainerRawData({ containerId, show, fullscreen, handleClose }) {
     const [containerData, setContainerData] = useState(null);
