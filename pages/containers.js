@@ -1,10 +1,8 @@
-import Containers from '@/components/containers/Containers'
-import React from 'react'
+import Containers from "@/components/Containers";
+import React from "react";
 import jwt from "jsonwebtoken";
 import Navbarsection from "@/components/shared/Navbarsection";
 import SideNav from "@/components/shared/SideNav";
-
-
 
 export async function getServerSideProps(context) {
     const token = context.req.cookies.auth;
@@ -37,10 +35,10 @@ function containers() {
     return (
         <>
             <Navbarsection />
-            <SideNav/>
-            <Containers/>
+            <SideNav />
+            <Containers />
         </>
-    )
+    );
 }
 
-export default containers
+export default containers;

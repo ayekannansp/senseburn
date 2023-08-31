@@ -35,7 +35,7 @@ function newpatient({ user }) {
             <Navbarsection />
             <AddPatient />
         </>
-    )
+    );
 }
 
-export default newpatient
+export default newpatient;
