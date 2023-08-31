@@ -1,15 +1,12 @@
-import Containers from '@/components/containers/Containers'
-import React from 'react'
+import Containers from "@/components/Containers";
+import React from "react";
 import jwt from "jsonwebtoken";
 import Navbarsection from "@/components/shared/Navbarsection";
 import SideNav from "@/components/shared/icon/SideNav";
-import Devices from '@/components/devices/Devices';
-
-
+import Devices from "@/components/devices";
 
 export async function getServerSideProps(context) {
     const token = context.req.cookies.auth;
-    console.log("TKN =>", token);
 
     if (!token) {
         return {
@@ -23,7 +20,7 @@ export async function getServerSideProps(context) {
     try {
         const decoded = jwt.verify(token, "YOUR_INTERNAL_SECRET");
         const user = decoded.user;
-        console.log("USR =>", user);
+
         return { props: { user } };
     } catch (error) {
         return {
@@ -38,10 +35,10 @@ function devices() {
     return (
         <>
             <Navbarsection />
-            <SideNav/>
-            <Devices/>
+            <SideNav />
+            <Devices />
         </>
-    )
+    );
 }
 
-export default devices
+export default devices;
