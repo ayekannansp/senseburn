@@ -64,7 +64,7 @@ function PatientDetail({ patientForm, onChange }) {
                                 patientForm.handleChange(event);
                                 onChange();
                             }}
-                            placeholder="Height(CM)"
+                            placeholder="Height (Centimetre)"
                         />
                     </Col>
                     <Col xl={6} md={12}>
@@ -78,7 +78,7 @@ function PatientDetail({ patientForm, onChange }) {
                                 patientForm.handleChange(event);
                                 onChange();
                             }}
-                            placeholder="Weight(KG)"
+                            placeholder="Weight (Kilogram)"
                         />
                     </Col>
                 </Row>

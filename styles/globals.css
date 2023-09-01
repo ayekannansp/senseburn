@@ -909,7 +909,7 @@ thead {
 }
 
 .radio-btn {
-  padding:0.75rem 1rem 0.65rem !important;
+  padding: 0.75rem 1rem 0.65rem !important;
   background-color: transparent !important;
   border: 1px solid #b6bdcb !important;
   border-radius: 0.375rem;
@@ -918,11 +918,12 @@ thead {
 .card-wrapper:hover {
   box-shadow: 0 1px 2px 0 rgb(129 198 253);
 }
+
 .action-dropdown {
   position: absolute;
   right: 15px;
   z-index: 9;
-  top: 15px ;
+  top: 15px;
 }
 
 .dropdown-item {
@@ -930,4 +931,23 @@ thead {
   align-items: center;
   gap: 12px;
   padding: 12px 15px !important;
+}
+
+::-webkit-input-placeholder {
+  /* Edge */
+  color: #d1d1d1 !important;
+  font-family: 'Modern-Era-regular' !important;
+
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #d1d1d1 !important;
+  font-family: 'Modern-Era-regular' !important;
+
+}
+
+::placeholder {
+  color: #d1d1d1 !important;
+  font-family: 'Modern-Era-regular' !important;
 }
