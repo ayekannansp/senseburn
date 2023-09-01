@@ -642,20 +642,21 @@ nav.navbar {
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 99;
+  z-index: 100;
 }
 
 .sidenav {
   position: fixed;
   width: 120px;
   border-right: 1px solid gainsboro;
-  height: calc(100vh - 82px);
+  height: 100%;
   bottom: 0;
   display: flex;
   justify-content: center;
   padding: 30px 0;
   background-color: #fff;
   z-index: 99;
+  padding-top: 100px;
 }
 
 .sidenav ul {
@@ -718,8 +719,7 @@ nav.navbar {
 @media(max-width:992px) {
   .sidenav {
     width: 60px;
-    height: calc(100vh - 53px);
-    padding: 5px 0;
+    padding: 60px 0 20px;
   }
 
   .p-dataview-layout-options {
