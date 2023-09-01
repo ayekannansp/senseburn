@@ -1,11 +1,8 @@
-import Containers from '@/components/containers/Containers'
-import React from 'react'
+import React from "react";
 import jwt from "jsonwebtoken";
 import Navbarsection from "@/components/shared/Navbarsection";
 import SideNav from "@/components/shared/SideNav";
-import PatientList from '@/components/patients/PatientList';
-
-
+import PatientList from "@/components/patients/PatientList";
 
 export async function getServerSideProps(context) {
     const token = context.req.cookies.auth;
@@ -38,10 +35,10 @@ function dashboard() {
     return (
         <>
             <Navbarsection />
-            <SideNav/>
-            <PatientList/>
+            <SideNav />
+            <PatientList />
         </>
-    )
+    );
 }
 
-export default dashboard
+export default dashboard;
