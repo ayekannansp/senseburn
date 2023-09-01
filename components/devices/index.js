@@ -6,7 +6,7 @@ import { DataView, DataViewLayoutOptions } from "primereact/dataview";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import SearchIcon from "../shared/icon/SearchIcon";
-import { Col, Table } from "react-bootstrap";
+import { Row, Col, Table } from "react-bootstrap";
 
 export default function Devices() {
     const [datas, setDatas] = useState([]);
@@ -101,44 +101,44 @@ export default function Devices() {
         return (
             <Col className=" p-2" lg={3} md={6} xs={12}>
                 <div className="p-4 border-1 surface-border surface-card border-round">
-                    <div className="flex flex-wrap align-items-center justify-content-between gap-2">
-                        <div className="align-items-center gap-2">
+                    <Row>
+                        <Col xs={6} className="align-items-center gap-2">
                             <span className="d-block ">Registered on</span>
                             <span className=" capitalize data">
                                 {new Intl.DateTimeFormat("en-GB").format(
                                     new Date(Date(data.registeredAt))
                                 )}
                             </span>
-                        </div>
-                        <div className=" align-items-center gap-2">
+                        </Col>
+                        <Col xs={6} className=" align-items-center gap-2">
                             <span className="d-block ">Version</span>
                             <span className=" data">{data.version}</span>
-                        </div>
-                    </div>
-                    <div className="flex flex-wrap align-items-center justify-content-between gap-2 mt-4">
-                        <div className="align-items-center gap-2">
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col xs={12} className="align-items-center gap-2">
                             <span className="d-block ">Serial: </span>
                             <span className="data">{data.serial}</span>
-                        </div>
-                    </div>
-                    <div className="flex flex-wrap align-items-center justify-content-between gap-2 mt-4">
-                        <div className="align-items-center gap-2">
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col xs={6} className="align-items-center gap-2">
                             <span className="d-block ">Created by</span>
                             <span className=" capitalize data">
                                 {(Createdby?.firstName || "") +
                                     " " +
                                     (Createdby?.lastName || "")}
                             </span>
-                        </div>
-                        <div className=" align-items-center gap-2">
+                        </Col>
+                        <Col xs={6} className=" align-items-center gap-2">
                             <span className="d-block ">Updated by</span>
                             <span className=" capitalize data">
                                 {(Updatedby?.firstName || "") +
                                     " " +
                                     (Updatedby?.lastName || "")}
                             </span>
-                        </div>
-                    </div>
+                        </Col>
+                    </Row>
                 </div>
             </Col>
         );
