@@ -1,12 +1,11 @@
-
 import React from "react";
 import jwt from "jsonwebtoken";
 import Navbarsection from "@/components/shared/Navbarsection";
 import SideNav from "@/components/shared/SideNav";
+import Users from "@/components/users";
 
 export async function getServerSideProps(context) {
     const token = context.req.cookies.auth;
-    console.log("TKN =>", token);
 
     if (!token) {
         return {
@@ -36,6 +35,7 @@ function users() {
         <>
             <Navbarsection />
             <SideNav />
+            <Users />
         </>
     );
 }
