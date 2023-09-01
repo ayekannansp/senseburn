@@ -5,9 +5,6 @@ import Navbarsection from "@/components/shared/Navbarsection";
 import SideNav from "@/components/shared/SideNav";
 import Location from "@/components/locations";
 
-
-
-
 export async function getServerSideProps(context) {
     const token = context.req.cookies.auth;
 

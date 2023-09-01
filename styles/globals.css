@@ -897,6 +897,13 @@ nav.navbar {
   border-radius: 6px;
   padding: 15px;
 }
+
 thead {
   background: #fff;
+}
+
+.modal-body .layout {
+  padding: 0;
+  height: auto !important;
+  min-height: auto !important;
 }

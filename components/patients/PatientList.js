@@ -9,11 +9,17 @@ import SearchIcon from '../shared/icon/SearchIcon';
 import Table from 'react-bootstrap/Table';
 import AddPatient from './addPatient/AddPatient';
 import Modal from 'react-bootstrap/Modal';
+import Containers from '../Containers';
 
 function PatientList() {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const [showContainer, setShowContainer] = useState(false);
+    const handleContainerClose = () => setShowContainer(false);
+    const handleContainerShow = () => setShowContainer(true);
+
     const [fullscreen, setFullscreen] = useState(true);
 
     const initialDatas = [
@@ -91,7 +97,7 @@ function PatientList() {
                             <VerticalIcon />
                         </Dropdown.Toggle>
                         <Dropdown.Menu >
-                            <Dropdown.Item href={`/patients/${data.slug}`}><i className="pi pi-history"></i> History</Dropdown.Item>
+                            <Dropdown.Item onClick={handleContainerShow}><i className="pi pi-history"></i> History</Dropdown.Item>
                             <Dropdown.Item href="#"><i className="pi pi-search"></i> Scan</Dropdown.Item>
                             <Dropdown.Item onClick={() => handleDelete(index)}><i className="pi pi-trash"></i> Delete</Dropdown.Item>
                             <Dropdown.Item href="#"><i className="pi pi-user-edit"></i> Edit</Dropdown.Item>
@@ -144,7 +150,7 @@ function PatientList() {
                                         <VerticalIcon />
                                     </Dropdown.Toggle>
                                     <Dropdown.Menu>
-                                        <Dropdown.Item href={`/patients/${data.slug}`}><i className="pi pi-history"></i> History</Dropdown.Item>
+                                        <Dropdown.Item onClick={handleContainerShow}><i className="pi pi-history"></i> History</Dropdown.Item>
                                         <Dropdown.Item href="#"><i className="pi pi-search"></i> Scan</Dropdown.Item>
                                         <Dropdown.Item onClick={() => handleDelete(index)}><i className="pi pi-trash"></i> Delete</Dropdown.Item>
                                         <Dropdown.Item href="#"><i className="pi pi-user-edit"></i> Edit</Dropdown.Item>
@@ -164,7 +170,7 @@ function PatientList() {
                 <Row>
                     <Col md={12} className='mb-4'>
                         <div className='d-flex align-items-center header-bar'>
-                            <div style={{ flex: '1' }}>
+                            <div style={{ flex: '2' }} className='max-600'>
                                 <InputGroup className="search">
                                     <InputGroup.Text id="basic-addon1"><SearchIcon /></InputGroup.Text>
                                     <Form.Control
@@ -174,7 +180,7 @@ function PatientList() {
                                     />
                                 </InputGroup>
                             </div>
-                            <div style={{ flex: '2' }} className='d-flex justify-content-end icon-btn'>
+                            <div style={{ flex: '1' }} className='d-flex justify-content-end icon-btn'>
                                 <ButtonGroup className='d-md-flex d-none'>
                                     <Button variant={view === 'table' ? 'primary' : 'light'} onClick={() => handleViewChange('table')}><i className="pi pi-list" ></i></Button>
                                     <Button variant={view === 'list' ? 'primary' : 'light'} onClick={() => handleViewChange('list')}><i className="pi pi-th-large" ></i></Button>
@@ -192,12 +198,22 @@ function PatientList() {
                     )}
                 </Row>
             </section>
+
             <Modal show={show} onHide={handleClose} fullscreen={fullscreen}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add Patients</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <AddPatient />
+                </Modal.Body>
+            </Modal>
+
+            <Modal show={showContainer} onHide={handleContainerClose} fullscreen={fullscreen}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Container</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Containers />
                 </Modal.Body>
             </Modal>
         </>
