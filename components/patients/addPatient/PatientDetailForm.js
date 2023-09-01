@@ -3,7 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { InputText } from "primereact/inputtext";
 
-function PatientDetail({ patientForm }) {
+function PatientDetail({ patientForm, onChange }) {
     return (
         <div className="add-patients">
             <Form.Group className="mb-1 mb-md-3">
@@ -15,6 +15,10 @@ function PatientDetail({ patientForm }) {
                             type="text"
                             id="f_name"
                             value={patientForm.values.firstname}
+                            onChange={(event) => {
+                                patientForm.handleChange(event);
+                                onChange();
+                            }}
                             placeholder="Enter first name"
                         />
                     </Col>
@@ -25,6 +29,10 @@ function PatientDetail({ patientForm }) {
                             type="text"
                             id="l_name"
                             value={patientForm.values.lastname}
+                            onChange={(event) => {
+                                patientForm.handleChange(event);
+                                onChange();
+                            }}
                             placeholder="Enter last name"
                         />
                     </Col>
@@ -34,6 +42,10 @@ function PatientDetail({ patientForm }) {
                             {...patientForm.getFieldProps("patientid")}
                             type="text"
                             value={patientForm.values.patientid}
+                            onChange={(event) => {
+                                patientForm.handleChange(event);
+                                onChange();
+                            }}
                             placeholder="Enter patient ID"
                         />
                     </Col>
@@ -48,6 +60,10 @@ function PatientDetail({ patientForm }) {
                             type="number"
                             id="height"
                             value={patientForm.values.height}
+                            onChange={(event) => {
+                                patientForm.handleChange(event);
+                                onChange();
+                            }}
                             placeholder="Enter Height(CM)"
                         />
                     </Col>
@@ -58,6 +74,10 @@ function PatientDetail({ patientForm }) {
                             type="number"
                             id="weight"
                             value={patientForm.values.weight}
+                            onChange={(event) => {
+                                patientForm.handleChange(event);
+                                onChange();
+                            }}
                             placeholder="Enter Weight(KG)"
                         />
                     </Col>
@@ -89,8 +109,14 @@ function PatientDetail({ patientForm }) {
                     <Col xl={6} md={12}>
                         <Form.Label>Age</Form.Label>
                         <Form.Control
+                            {...patientForm.getFieldProps("age")}
                             type="number"
                             id="age"
+                            value={patientForm.values.age}
+                            onChange={(event) => {
+                                patientForm.handleChange(event);
+                                onChange();
+                            }}
                             placeholder="Enter Age"
                         />
                     </Col>
