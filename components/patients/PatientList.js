@@ -73,28 +73,58 @@ function PatientList() {
 
         return (
             <Col xxl={3} xl={4} lg={6} className="mb-3">
-                <div className="card-wrapper border-card">
-                    <div className="card-head p-4 border-bottom d-flex justify-content-between">
-                        <div className="header w-100">
-                            <span className="user">
-                                <UserIcon />
-                            </span>
-                            <span>
-                                <span className="name d-block mb-1 capitalize">
-                                    {user?.firstName || ""}
-                                    {"  "}
-                                    {user?.lastName || ""}
+                <div className=' position-relative'>
+                    <div className="card-wrapper border-card pointer" onClick={() => handleContainerShow(data)}>
+                        <div className="card-head p-4 border-bottom d-flex justify-content-between">
+                            <div className="header w-100">
+                                <span className="user">
+                                    <UserIcon />
                                 </span>
-                                <span className="user-info ">
-                                    {data?.gender} &nbsp;&nbsp;|&nbsp;&nbsp;{" "}
-                                    height:{data?.height}
-                                    <br />
-                                    &nbsp;&nbsp;|&nbsp;&nbsp; weight:{" "}
-                                    {data?.weight} <br />
-                                    &nbsp;&nbsp;|&nbsp;&nbsp; Age: {data?.age}
+                                <span>
+                                    <span className="name d-block mb-1 capitalize">
+                                        {user?.firstName || ""}
+                                        {"  "}
+                                        {user?.lastName || ""}
+                                    </span>
+                                    <span className="user-info ">
+                                        {data?.gender} &nbsp;&nbsp;|&nbsp;&nbsp;{" "}
+                                        height:{data?.height}
+                                        <br />
+                                        &nbsp;&nbsp;|&nbsp;&nbsp; weight:{" "}
+                                        {data?.weight} <br />
+                                        &nbsp;&nbsp;|&nbsp;&nbsp; Age: {data?.age}
+                                    </span>
                                 </span>
-                            </span>
+                            </div>
+
                         </div>
+                        <div className="card_body p-4">
+                            <div className="img-container">
+                                <div className="d-flex">
+                                    {data?.img?.map((imgPath, imgIndex) => (
+                                        <div key={imgIndex}>
+                                            <Image
+                                                src={imgPath}
+                                                className="img-thumbnail"
+                                                alt="profile image"
+                                            />
+                                        </div>
+                                    ))}
+                                    <span>
+                                        {data?.containers?.length > 0 && (
+                                            <Badge variant="primary">
+                                                {data?.containers?.length}{" "}
+                                                {data?.containers?.length > 1
+                                                    ? "Measurements"
+                                                    : "Measurement"}{" "}
+                                            </Badge>
+                                        )}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='action-dropdown'>
                         <Dropdown drop="start">
                             <Dropdown.Toggle
                                 id="action"
@@ -119,31 +149,6 @@ function PatientList() {
                                 </Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
-                    </div>
-                    <div className="card_body p-4">
-                        <div className="img-container">
-                            <div className="d-flex">
-                                {data?.img?.map((imgPath, imgIndex) => (
-                                    <div key={imgIndex}>
-                                        <Image
-                                            src={imgPath}
-                                            className="img-thumbnail"
-                                            alt="profile image"
-                                        />
-                                    </div>
-                                ))}
-                                <span>
-                                    {data?.containers?.length > 0 && (
-                                        <Badge variant="primary">
-                                            {data?.containers?.length}{" "}
-                                            {data?.containers?.length > 1
-                                                ? "Measurements"
-                                                : "Measurement"}{" "}
-                                        </Badge>
-                                    )}
-                                </span>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </Col>
@@ -247,7 +252,7 @@ function PatientList() {
                                         onChange={(event) =>
                                             setSearchText(
                                                 event?.target?.value?.toLowerCase() ||
-                                                    ""
+                                                ""
                                             )
                                         }
                                     />
