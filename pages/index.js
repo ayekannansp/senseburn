@@ -1,8 +1,6 @@
 import React from "react";
 import jwt from "jsonwebtoken";
-import HomeSection from "@/components/HomeSection";
 import Navbarsection from "@/components/shared/Navbarsection";
-import Dashboard from "@/components/dashboard/Dashboard";
 import SideNav from "@/components/shared/SideNav";
 
 export async function getServerSideProps(context) {
@@ -37,8 +35,7 @@ export default function Home({ user }) {
     return (
         <>
             <Navbarsection />
-            <SideNav/>
-            <Dashboard/>
+            <SideNav />
         </>
     );
 }

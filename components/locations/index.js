@@ -66,9 +66,11 @@ export default function Location() {
                                 {"  "} {data.zip} {"  "} {data.country}
                             </td>
                             <td>
-                                {(Createdby?.firstName || "") +
-                                    " " +
-                                    (Createdby?.lastName || "")}
+                                <span className=" capitalize data">
+                                    {(Createdby?.firstName || "") +
+                                        " " +
+                                        (Createdby?.lastName || "")}
+                                </span>
                             </td>
                             <td>
                                 {new Intl.DateTimeFormat("en-GB").format(
