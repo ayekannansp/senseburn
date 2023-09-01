@@ -28,17 +28,19 @@ export default function Containers({ extractList }) {
             datas?.filter(
                 (data) =>
                     data?.dataFormatVersion
-                        .toLowerCase()
-                        .includes(searchText?.toLowerCase()) ||
+                        ?.toLowerCase()
+                        ?.includes(searchText?.toLowerCase()) ||
                     data?.measurementType
-                        .toLowerCase()
-                        .includes(searchText?.toLowerCase()) ||
+                        ?.toLowerCase()
+                        ?.includes(searchText?.toLowerCase()) ||
                     data?.userCreated
-                        .toLowerCase()
-                        .includes(searchText?.toLowerCase()) ||
+                        ?.toString()
+                        ?.toLowerCase()
+                        ?.includes(searchText?.toLowerCase()) ||
                     data?.dateCreated
-                        .toLowerCase()
-                        .includes(searchText?.toLowerCase())
+                        ?.toString()
+                        ?.toLowerCase()
+                        ?.includes(searchText?.toLowerCase())
             )
         );
     }, [containers, searchText]);
