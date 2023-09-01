@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useFormik } from "formik";
-
 import { Col, Container, Row, Button, Form } from "react-bootstrap";
-import PatientDetail from "./PatientDetailForm";
-import PatientCensorList from "./PatientCensorListForm";
+import PatientDetail from "./FIrstStep";
+import PatientCensorList from "./SecondStep";
 import Stepper from "../../shared/Stepper";
-import PatientBurnDetail from "./PatientBurnDetailForm";
+import PatientBurnDetail from "./ThirdStep";
 
 function AddPatient() {
     const [currentStep, setCurrentStep] = useState(0);

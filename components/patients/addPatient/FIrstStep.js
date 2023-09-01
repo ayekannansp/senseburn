@@ -88,7 +88,7 @@ function PatientDetail({ patientForm, onChange }) {
                     <Col xl={6} md={12} className="mb-1 mb-md-0">
                         <Form.Label>Gender</Form.Label>
                         {["radio"].map((type) => (
-                            <div key={`inline-${type}`}>
+                            <div key={`inline-${type}`} className='radio-btn'>
                                 <Form.Check
                                     inline
                                     label="Male"
