@@ -3,7 +3,7 @@ import { DataView, DataViewLayoutOptions } from "primereact/dataview";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import SearchIcon from "../shared/icon/SearchIcon";
-import { Col, Table } from "react-bootstrap";
+import { Col, Row, Table } from "react-bootstrap";
 import axios from "axios";
 import useFetchUser from "@/hooks/useFetchUser";
 
@@ -123,45 +123,45 @@ export default function Containers() {
         const { user, loading, error } = useFetchUser(data.User);
         return (
             <Col
-                className=" p-2 pointer"
+                className="p-2 pointer"
                 lg={3}
                 md={6}
                 xs={12}
                 onClick={() => handleShow(data["@id"].split("/").pop())}
                 key={data["@id"].split("/").pop()}>
                 <div className="p-4 border-1 surface-border surface-card border-round">
-                    <div className="flex flex-wrap align-items-center justify-content-between gap-2">
-                        <div className="align-items-center gap-2">
+                    <Row>
+                        <Col xs={6} className="align-items-center gap-2">
                             <span className="d-block ">Format</span>
                             <span className=" capitalize data">
                                 {data?.dataFormatVersion}
                             </span>
-                        </div>
-                        <div className=" align-items-center gap-2">
+                        </Col>
+                        <Col xs={6} className=" align-items-center gap-2">
                             <span className="d-block ">Measurement type</span>
                             <span className=" data">
                                 {data?.measurementType}
                             </span>
-                        </div>
-                    </div>
-                    <div className="flex flex-wrap align-items-center justify-content-between gap-2 mt-4">
-                        <div className="align-items-center gap-2">
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col xs={6} className="align-items-center gap-2">
                             <span className="d-block ">Created by</span>
                             <span className=" data capitalize">
                                 {(user?.firstName || "") +
                                     " " +
                                     (user?.lastName || "")}
                             </span>
-                        </div>
-                        <div className=" align-items-center gap-2">
+                        </Col>
+                        <Col xs={6} className=" align-items-center gap-2">
                             <span className="d-block ">Date</span>
                             <span className=" data">
                                 {new Intl.DateTimeFormat("en-GB").format(
                                     new Date(Date(data.dateCreated))
                                 )}
                             </span>
-                        </div>
-                    </div>
+                        </Col>
+                    </Row>
                 </div>
             </Col>
         );
