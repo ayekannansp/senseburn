@@ -924,3 +924,10 @@ thead {
   z-index: 9;
   top: 15px ;
 }
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 15px !important;
+}
