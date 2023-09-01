@@ -24,11 +24,7 @@ function AddPatient() {
 
     const stepBarWidth = `${(currentStep / 2) * 102}%`;
 
-    const steps = [
-        <PatientDetail />,
-        <PatientCensorList />,
-        <PatientBurnDetail />,
-    ];
+
 
     return (
         <>
@@ -38,13 +34,31 @@ function AddPatient() {
                         <div className='position-relative my-2 my-md-3'>
                             <Stepper currentStep={currentStep} setCurrentStep={setCurrentStep} stepBarWidth={stepBarWidth} />
                         </div>
-                        <div className='wrapper'>
-                            <Row>
-                                <Col md={12}>
-                                    {steps[currentStep]}
-                                </Col>
-                            </Row>
-                        </div>
+                        {currentStep === 0 && <>
+                            <div className='wrapper'>
+                                <Row>
+                                    <Col md={12}>
+                                        <div style={{ position: 'sticky', top: '0' }}>
+                                            <PatientDetail />
+                                        </div>
+                                    </Col>
+                                </Row>
+                            </div>
+                        </>}
+                        {currentStep === 1 && <>
+                            <div className='wrapper'>
+                                <Row>
+                                    <Col md={12}>
+                                        <PatientCensorList />
+                                    </Col>
+                                </Row>
+                            </div>
+                        </>}
+                        {currentStep === 2 && <>
+                            <div className='wrapper'>
+                                <PatientBurnDetail />
+                            </div>
+                        </>}
                         <div className='d-flex gap-2 justify-content-end footer'>
                             <Button size='md' variant='dark' className='px-4 py-2 rounded-1' onClick={handlePrev} disabled={currentStep === 0}>
                                 Previous
