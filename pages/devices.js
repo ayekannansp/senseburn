@@ -1,9 +1,9 @@
-import Containers from "@/components/Containers";
 import React from "react";
 import jwt from "jsonwebtoken";
 import Navbarsection from "@/components/shared/Navbarsection";
 import SideNav from "@/components/shared/SideNav";
-import Devices from '@/components/devices/Devices';
+import Devices from "@/components/devices";
+
 
 export async function getServerSideProps(context) {
     const token = context.req.cookies.auth;
