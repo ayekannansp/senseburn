@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Dropdown } from "primereact/dropdown";
 import { Button, Col, Form, Row, Image } from "react-bootstrap";
-//import ChartData from "./ChartData";
 import BMIGauge from "./BMIGauge";
 
-function PatientBurnDetail({ bmi, patientForm }) {
+function PatientBurnDetail({ bmi, patientForm, onChange }) {
     const [burnImages, setBurnImages] = useState([]);
     const [probleImages, setProbleImages] = useState([]);
 
@@ -33,9 +31,13 @@ function PatientBurnDetail({ bmi, patientForm }) {
                                     id="burnImage"
                                     accept=".jpg,.jpeg,.png"
                                     className="form-control custom-file-upload mb-1"
-                                    onChange={(event) =>
-                                        handleImageChange(event, setBurnImages)
+                                    onChange={(event) => {
+                                        handleImageChange(event, setBurnImages);
+                                        onChange();
                                     }
+                                    }
+
+
                                 />
                                 <Form.Text className="mt-2">
                                     ( Format jpg (or) jpeg. | Maximum size 4MB )
@@ -90,12 +92,13 @@ function PatientBurnDetail({ bmi, patientForm }) {
                                     id="probleImage"
                                     accept=".jpg,.jpeg,.png"
                                     className="form-control custom-file-upload mb-1"
-                                    onChange={(event) =>
+                                    onChange={(event) => {
                                         handleImageChange(
                                             event,
                                             setProbleImages
-                                        )
-                                    }
+                                        );
+                                        onChange();
+                                    }}
                                 />
                                 <Form.Text className="mt-2">
                                     ( Format jpg (or) jpeg. | Maximum size 4MB )

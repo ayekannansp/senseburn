@@ -68,7 +68,7 @@ function PatientList() {
             <Col xxl={3} xl={4} lg={6} className="mb-3">
                 <div className="card-wrapper border-card">
                     <div className="card-head p-4 border-bottom d-flex justify-content-between">
-                        <div className="header">
+                        <div className="header w-100">
                             <span className="user">
                                 <UserIcon />
                             </span>
@@ -78,13 +78,13 @@ function PatientList() {
                                     {"  "}
                                     {user?.lastName || ""}
                                 </span>
-                                <span className="user-info">
+                                <span className="user-info ">
                                     {data?.gender} &nbsp;&nbsp;|&nbsp;&nbsp;{" "}
-                                    height {data?.height}
+                                    height:{data?.height}
                                     <br />
-                                    &nbsp;&nbsp;|&nbsp;&nbsp; weight{" "}
+                                    &nbsp;&nbsp;|&nbsp;&nbsp; weight:{" "}
                                     {data?.weight} <br />
-                                    &nbsp;&nbsp;|&nbsp;&nbsp; Age {data?.age}
+                                    &nbsp;&nbsp;|&nbsp;&nbsp; Age: {data?.age}
                                 </span>
                             </span>
                         </div>
