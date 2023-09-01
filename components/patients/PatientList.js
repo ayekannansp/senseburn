@@ -115,15 +115,18 @@ function PatientList() {
                     </div>
                     <div className="card_body p-4">
                         <div className="img-container">
-                            {data?.img?.map((imgPath, imgIndex) => (
-                                <div key={imgIndex}>
-                                    <Image
-                                        src={imgPath}
-                                        className="img-thumbnail"
-                                        alt="profile image"
-                                    />
-                                </div>
-                            ))}
+                            <div className='d-flex'>
+                                {data?.img?.map((imgPath, imgIndex) => (
+                                    <div key={imgIndex}>
+                                        <Image
+                                            src={imgPath}
+                                            className="img-thumbnail"
+                                            alt="profile image"
+                                        />
+                                    </div>
+                                ))}
+                                <span>5 <span  className="user-info ">Measurements</span></span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -228,7 +231,7 @@ function PatientList() {
                                         onChange={(event) =>
                                             setSearchText(
                                                 event?.target?.value?.toLowerCase() ||
-                                                    ""
+                                                ""
                                             )
                                         }
                                     />

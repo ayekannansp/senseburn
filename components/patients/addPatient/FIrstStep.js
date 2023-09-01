@@ -19,7 +19,7 @@ function PatientDetail({ patientForm, onChange }) {
                                 patientForm.handleChange(event);
                                 onChange();
                             }}
-                            placeholder="Enter first name"
+                            placeholder="First name"
                         />
                     </Col>
                     <Col xl={4} md={12} className="mb-1 mb-md-0">
@@ -33,7 +33,7 @@ function PatientDetail({ patientForm, onChange }) {
                                 patientForm.handleChange(event);
                                 onChange();
                             }}
-                            placeholder="Enter last name"
+                            placeholder="Last name"
                         />
                     </Col>
                     <Col xl={4} md={12}>
@@ -46,7 +46,7 @@ function PatientDetail({ patientForm, onChange }) {
                                 patientForm.handleChange(event);
                                 onChange();
                             }}
-                            placeholder="Enter patient ID"
+                            placeholder="Patient ID"
                         />
                     </Col>
                 </Row>
@@ -54,7 +54,7 @@ function PatientDetail({ patientForm, onChange }) {
             <Form.Group className="mb-1 mb-md-3">
                 <Row>
                     <Col xl={6} md={12} className="mb-1 mb-md-0">
-                        <Form.Label>Height(CM)</Form.Label>
+                        <Form.Label>Height (Centimetre)</Form.Label>
                         <Form.Control
                             {...patientForm.getFieldProps("height")}
                             type="number"
@@ -64,11 +64,11 @@ function PatientDetail({ patientForm, onChange }) {
                                 patientForm.handleChange(event);
                                 onChange();
                             }}
-                            placeholder="Enter Height(CM)"
+                            placeholder="Height(CM)"
                         />
                     </Col>
                     <Col xl={6} md={12}>
-                        <Form.Label>Weight(KG)</Form.Label>
+                        <Form.Label>Weight (Kilogram)</Form.Label>
                         <Form.Control
                             {...patientForm.getFieldProps("weight")}
                             type="number"
@@ -78,7 +78,7 @@ function PatientDetail({ patientForm, onChange }) {
                                 patientForm.handleChange(event);
                                 onChange();
                             }}
-                            placeholder="Enter Weight(KG)"
+                            placeholder="Weight(KG)"
                         />
                     </Col>
                 </Row>
