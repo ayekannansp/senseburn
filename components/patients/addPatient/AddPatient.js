@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useFormik } from "formik";
 
 import { Col, Container, Row, Button, Form } from "react-bootstrap";
@@ -34,7 +34,8 @@ function AddPatient() {
         },
     });
 
-    function calculateBMI(weightKg, heightM) {
+    function calculateBMI(weightKg, heightCM) {
+        const heightM = heightCM / 100;
         const bmi = weightKg / (heightM * heightM);
         return bmi;
     }
@@ -44,6 +45,10 @@ function AddPatient() {
             calculateBMI(patientForm.values.weight, patientForm.values.height)
         );
     }, [patientForm.values]);
+
+    const onChange = () => {
+        console.log("onChange =>", patientForm.values);
+    };
 
     return (
         <>
@@ -67,7 +72,10 @@ function AddPatient() {
                                                     position: "sticky",
                                                     top: "0",
                                                 }}>
-                                                <PatientDetail />
+                                                <PatientDetail
+                                                    patientForm={patientForm}
+                                                    onChange={onChange}
+                                                />
                                             </div>
                                         </Col>
                                     </Row>
@@ -79,7 +87,9 @@ function AddPatient() {
                                 <div className="wrapper">
                                     <Row>
                                         <Col md={12}>
-                                            <PatientCensorList />
+                                            <PatientCensorList
+                                                patientForm={patientForm}
+                                            />
                                         </Col>
                                     </Row>
                                 </div>
@@ -88,7 +98,10 @@ function AddPatient() {
                         {currentStep === 2 && (
                             <>
                                 <div className="wrapper">
-                                    <PatientBurnDetail bmi={bmi} />
+                                    <PatientBurnDetail
+                                        bmi={bmi}
+                                        patientForm={patientForm}
+                                    />
                                 </div>
                             </>
                         )}

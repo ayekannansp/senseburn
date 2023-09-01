@@ -4,7 +4,7 @@ import { Button, Col, Form, Row, Image } from "react-bootstrap";
 //import ChartData from "./ChartData";
 import BMIGauge from "./BMIGauge";
 
-function PatientBurnDetail({ bmi }) {
+function PatientBurnDetail({ bmi, patientForm }) {
     const [burnImages, setBurnImages] = useState([]);
     const [probleImages, setProbleImages] = useState([]);
 
