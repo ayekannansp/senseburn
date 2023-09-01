@@ -8,58 +8,50 @@ import axios from "axios";
 import useFetchUser from "@/hooks/useFetchUser";
 
 import ContainerRawData from "./ContainerRawData";
+import useFetchContainers from "@/hooks/useFetchContainers";
 
-export default function Containers() {
+export default function Containers({ extractList }) {
     const [datas, setDatas] = useState([]);
     const [layout, setLayout] = useState("grid");
     const [searchText, setSearchText] = useState("");
+
     const [showModal, setShowModal] = useState(false);
     const [fullscreen, setFullscreen] = useState(true);
     const [filteredDatas, setFilteredDatas] = useState(null);
     const [selectedContainer, setselectedContainer] = useState(null);
 
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const { containers } = useFetchContainers("containers");
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get("/api/containers");
-                if (response.data.success) {
-                    const containerData = response.data.responseBody;
-                    setDatas(containerData["hydra:member"]);
-                } else {
-                    setError(response.data.message || "An error occurred");
-                }
-            } catch (error) {
-                setError("An error occurred while fetching data");
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchData();
-    }, []);
-
-    useEffect(() => {
+        setDatas(containers ? containers["hydra:member"] : []);
         setFilteredDatas(
-            datas.filter(
+            datas?.filter(
                 (data) =>
-                    data.dataFormatVersion
+                    data?.dataFormatVersion
                         .toLowerCase()
-                        .includes(searchText.toLowerCase()) ||
-                    data.measurementType
+                        .includes(searchText?.toLowerCase()) ||
+                    data?.measurementType
                         .toLowerCase()
-                        .includes(searchText.toLowerCase()) ||
-                    data.userCreated
+                        .includes(searchText?.toLowerCase()) ||
+                    data?.userCreated
                         .toLowerCase()
-                        .includes(searchText.toLowerCase()) ||
-                    data.dateCreated
+                        .includes(searchText?.toLowerCase()) ||
+                    data?.dateCreated
                         .toLowerCase()
-                        .includes(searchText.toLowerCase())
+                        .includes(searchText?.toLowerCase())
             )
         );
-    }, [datas, searchText]);
+    }, [containers, searchText]);
+
+    useEffect(() => {
+        if (!containers || !extractList) return;
+
+        const matchingElements = containers?.filter((member) =>
+            extractList.includes(member["@id"])
+        );
+
+        setDatas(matchingElements);
+    }, [extractList]);
 
     const handleShow = (containerId = null) => {
         setselectedContainer(containerId);
@@ -131,13 +123,7 @@ export default function Containers() {
                 key={data["@id"].split("/").pop()}>
                 <div className="p-4 border-1 surface-border surface-card border-round">
                     <Row>
-                        <Col xs={6} className="align-items-center gap-2">
-                            <span className="d-block ">Format</span>
-                            <span className=" capitalize data">
-                                {data?.dataFormatVersion}
-                            </span>
-                        </Col>
-                        <Col xs={6} className=" align-items-center gap-2">
+                        <Col xs={12} className=" align-items-center gap-2">
                             <span className="d-block ">Measurement type</span>
                             <span className=" data">
                                 {data?.measurementType}
@@ -145,15 +131,24 @@ export default function Containers() {
                         </Col>
                     </Row>
                     <Row>
-                        <Col xs={6} className="align-items-center gap-2">
+                        <Col xs={12} className="align-items-center gap-2">
+                            <span className="d-block ">Format</span>
+                            <span className=" capitalize data">
+                                {data?.dataFormatVersion}
+                            </span>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        {/* <Col xs={6} className="align-items-center gap-2">
                             <span className="d-block ">Created by</span>
                             <span className=" data capitalize">
                                 {(user?.firstName || "") +
                                     " " +
                                     (user?.lastName || "")}
                             </span>
-                        </Col>
-                        <Col xs={6} className=" align-items-center gap-2">
+                        </Col> */}
+                        <Col xs={12} className=" align-items-center gap-2">
                             <span className="d-block ">Date</span>
                             <span className=" data">
                                 {new Intl.DateTimeFormat("en-GB").format(
