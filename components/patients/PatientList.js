@@ -11,6 +11,7 @@ import Table from "react-bootstrap/Table";
 import AddPatient from "./addPatient/AddPatient";
 import Modal from "react-bootstrap/Modal";
 import Containers from "../Containers";
+import Badge from "react-bootstrap/Badge";
 
 import useFetchClients from "@/hooks/useFetchClients";
 import useFetchUser from "@/hooks/useFetchUser";
@@ -43,6 +44,12 @@ function PatientList() {
                         .toLowerCase()
                         .includes(searchText?.toLowerCase()) ||
                     String(data?.age)
+                        .toLowerCase()
+                        .includes(searchText?.toLowerCase()) ||
+                    String(data?.height)
+                        .toLowerCase()
+                        .includes(searchText?.toLowerCase()) ||
+                    String(data?.weight)
                         .toLowerCase()
                         .includes(searchText?.toLowerCase())
             )
@@ -115,7 +122,7 @@ function PatientList() {
                     </div>
                     <div className="card_body p-4">
                         <div className="img-container">
-                            <div className='d-flex'>
+                            <div className="d-flex">
                                 {data?.img?.map((imgPath, imgIndex) => (
                                     <div key={imgIndex}>
                                         <Image
@@ -125,7 +132,16 @@ function PatientList() {
                                         />
                                     </div>
                                 ))}
-                                <span>5 <span  className="user-info ">Measurements</span></span>
+                                <span>
+                                    {data?.containers?.length > 0 && (
+                                        <Badge variant="primary">
+                                            {data?.containers?.length}{" "}
+                                            {data?.containers?.length > 1
+                                                ? "Measurements"
+                                                : "Measurement"}{" "}
+                                        </Badge>
+                                    )}
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -231,7 +247,7 @@ function PatientList() {
                                         onChange={(event) =>
                                             setSearchText(
                                                 event?.target?.value?.toLowerCase() ||
-                                                ""
+                                                    ""
                                             )
                                         }
                                     />
